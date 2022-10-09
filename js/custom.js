@@ -1,5 +1,6 @@
 let showFilter = false;
 
+
 function getDocHeight() {
     return Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -13,9 +14,16 @@ $(document).ready(function () {
         if ($(window).scrollTop() + $(window).height() >= getDocHeight()) {
             if (!showFilter) {
                 $("#menuFilter").removeClass("hidden");
-                $("#txtScroll").addClass("hidden");
+                $("#txtScroll").addClass("hiddenDisplay");
+                $("#lnkShowAll").click();
             }
             showFilter = true;
         }
     });
+});
+$(window).on("load", function() {
+    $("#loading-info").addClass("hiddenDisplay");
+    let picturesSection = $("#pictures-section");
+    picturesSection.removeClass("hidden");
+    picturesSection.addClass("visible");
 });
